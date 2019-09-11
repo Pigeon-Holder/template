@@ -1,0 +1,21 @@
+
+const int maxn=1e7;
+ll pr[maxn];
+bool v[maxn];
+int cnt;
+void init()
+{
+    mem(v,0);
+    cnt=0;
+    for(int i=2;i<maxn;++i)
+    {
+        if(!v[i])
+            pr[cnt++]=i;
+        for(int j=0;j<cnt&&i*pr[j]<maxn;++j)
+        {
+            v[i*pr[j]]=1;
+            if(i%pr[j]==0)
+                break;
+        }
+    }
+}
