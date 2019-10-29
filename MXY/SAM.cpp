@@ -5,7 +5,8 @@ struct SAM
 	struct node
 	{
 		int to[26];
-		int len,link,siz;
+		int len,link,siz;//siz:这个集合里的串的出现次数
+		bool suf;
 		ll sum;
 	}t[2*maxn];
 	int sz,lst;
@@ -20,6 +21,7 @@ struct SAM
 		t[sz].link=0;
 		t[sz].siz=0;
 		t[sz].sum=0;
+		t[sz].suf=0;
 		return sz;
 	}
 	void init()
@@ -35,6 +37,7 @@ struct SAM
 	    int c=w-'a';
 		int p=lst;
 		int now=newnode(t[p].len+1);
+		t[now].suf=1;
 		while(p&&!t[p].to[c])
 		{
 			t[p].to[c]=now;
@@ -73,6 +76,13 @@ struct SAM
             cnt[i]+=cnt[i-1];
         for(int i=1;i<=sz;++i)
             top[cnt[t[i].len]--]=i;
+        /*
+        for(int i=sz;i;--i)
+        {
+            int x=top[i],f=t[x].link;
+            t[f].siz+=t[x].siz;
+        }*/
+        /*
         //run1
         for(int i=1;i<=sz;++i)
             ans[i]=t[i].len;
@@ -87,8 +97,8 @@ struct SAM
         {
             int x=top[i],f=t[x].link;
             t[x].sum=t[f].sum+1LL*t[x].siz*(t[x].len-t[f].len);
-        }
-	}
+        }*/
+	}/*
 	//两串相同子串数量
 	ll run1(char s[])
 	{
@@ -152,5 +162,18 @@ struct SAM
 	    for(int i=0;i<sz;++i)
             r=max(r,ans[i]);
         return r;
+	}*/
+	void show(int c)
+	{
+	    for(int i=1;i<=sz;++i)
+        {
+            cout<<i<<": \n";
+            for(int j=0;j<c;++j)
+                cout<<char(j+'a')<<" "<<t[i].to[j]<<endl;
+            cout<<"len "<<t[i].len<<"  link "<<t[i].link<<"  suf "<<t[i].suf<<endl;
+            cout<<endl;
+        }
+        for(int i=0;i<=sz*2;++i)
+            cout<<i<<' '<<top[i]<<' '<<t[i].siz<<endl;
 	}
 }sam;
