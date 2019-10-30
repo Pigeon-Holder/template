@@ -1,22 +1,4 @@
-#include<bits/stdc++.h>
-using namespace std;
-#define mem(a,b) memset((a),b,sizeof((a)))
-#define clr(v) (v).clear()
-#define pii pair<int,int>
-#define pll pair<ll,ll>
-#define pil pair<int,ll>
-#define mp make_pair
-#define pb push_back
-#define ll long long
-#define ld long double
-#define ull unsigned long long
-#define IOS ios::sync_with_stdio(0);cin.tie(0);cout.tie(0)
-#define lowbit(i) (i&(-i))
-#define lson rt<<1
-#define rson lson|1
-#define fi first
-#define se second
-
+//基于边权:把值赋给儿子节点
 const int maxn=1e5+5;
 struct ed
 {
