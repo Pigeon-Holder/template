@@ -1,3 +1,16 @@
+不同子串个数：
+对于一个后缀sa[i]，它产生了n-sa[i]个前缀，减去height[i]个相同的前缀(与前一个比较)
+则产生了n-sa[i]-height[i]个子串
+for(int i=1;i<=N;i++)
+    ans+=n+1-sa[i]-height[i];
+
+出现k次可重叠最长子串：
+二分长度l，height>=l的连续段长就是出现次数
+
+不可重叠出现k次：
+同样二分长度l，
+连续段长的height位置对应的sa拿出来，如果能找出一个子序列满足每两个之间差>=l就成立
+
 const int maxn=1e6+5;
 char s[maxn];
 struct SA
