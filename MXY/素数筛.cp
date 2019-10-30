@@ -1,4 +1,3 @@
-
 const int maxn=1e7;
 ll pr[maxn];
 bool v[maxn];
