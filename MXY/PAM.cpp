@@ -1,6 +1,6 @@
 const int maxn=4e5+5;
 struct PAM
-{
+{//偶长根:1 奇长根:2 fail:最长回文后缀
     struct node
     {
         int to[26],len,fail,cnt;
@@ -30,6 +30,7 @@ struct PAM
     }
     void add(char w)
     {
+        //正序添加，每添加一个字符，lst的len就是这个字符往左的最长回文串长
         s[++len]=w;
         int c=w-'a';
         int now=getfail(lst);
@@ -41,6 +42,7 @@ struct PAM
         }
         lst=t[now].to[c];
         ++t[lst].cnt;
+        cout<<t[lst].len<<endl;
     }
     void cnt()
     {
