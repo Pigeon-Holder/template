@@ -1,4 +1,4 @@
-
+皮克定理:整点多边形面积=内部点+边上点/2-1
 struct point
 {
     double x,y;point(){}point(const double &a,const double &b){x=a;y=b;}
