@@ -52,6 +52,7 @@ struct ACM
         {
             int now=q.front();
             q.pop();
+            //a[now].cnt+=a[a[now].fail].cnt;
             for(int i=0;i<128;++i)
             {
                 int son=a[now].to[i];
